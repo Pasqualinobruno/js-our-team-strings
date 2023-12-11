@@ -12,10 +12,12 @@ BONUS 2:
 Inserire un form per l’aggiunta di un elemento alla lista.
 */
 
+//let milan = "./img/acmilan.png";
+//console.log(milan);
 
 //Creare l’array di stringhe contenente i nomi dei membri del team.
 const team_player = ["Kakà", "Inzaghi", "Leao", "Pirlo", "Maldini", "Cafù", "Dida", "Giroud", "Gattuso", "Sedoorf"];
-console.log(team_player);
+//console.log(team_player);
 
 const row_element = document.querySelector('#team')
 const row_banch = document.querySelector('#banch')
@@ -43,11 +45,23 @@ for (let i = 0; i < team_player.length; i++) {
     //append in panchina 
     row_banch.append(card_element)
 
-    card_element.classList.add("opacity")
+    card_element.classList.add("opacity");
 
+    card_element.addEventListener('click', function add_card_to_team() {
+        alert('Aggiunto al team');
 
+        row_element.append(card_element);
+        card_element.classList.remove('opacity');
+        
+        
     })
+
+
+    }
+
+
     
+    )
     //aggiungo le card alla dom
     row_element.append(card_element)
 
@@ -58,7 +72,7 @@ function generete_card(name) {
     //creato le card da appendere alla dom
     const card_element = document.createElement('div');
     card_element.className = 'card'; 
-    console.log(card_element);
+    //console.log(card_element);
     return card_element
 
 }
@@ -66,7 +80,15 @@ function generete_card(name) {
 document.querySelector('button').addEventListener('click', function add_player_on_team(value) {
     const player_add_user = document.querySelector('input').value;
     console.log(player_add_user);
+    const new_player = generete_card(player_add_user);
+    new_player.innerText = player_add_user;
+    console.log(new_player);
 
-    team_player.push(player_add_user);
+
+    team_player.push(new_player);
     console.log(team_player);
 })
+
+
+
+
